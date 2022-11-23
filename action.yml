@@ -26,6 +26,10 @@ inputs:
     description: "Command used to build your application. Ex: `npm run build`"  
     required: false
     default: production
+  DIST_DIR:
+    description: "Command used to build your application. Ex: `./dist`"  
+    required: false
+    default: production
 
 runs:
   using: "docker"
@@ -37,3 +41,4 @@ runs:
     AWS_BUCKET_NAME: ${{ inputs.AWS_BUCKET_NAME }}
     APP_SOURCE_CODE: ${{ inputs.APP_SOURCE_CODE }}
     BUILD_COMMAND: ${{ inputs.BUILD_COMMAND }}
+    DIST_DIR: ${{ inputs.DIST_DIR }}
