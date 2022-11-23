@@ -6,10 +6,12 @@ cd $INPUT_APP_SOURCE_CODE
 #Install dependencies
 echo "Installing dependencies"
 npm install > /dev/null 2>&1
+
 distDir=$INPUT_DIST_DIR
 if [ ! $distDir ] then
 distDir = '/dist'
-fi;
+fi
+
 echo "Dist dir : " $distDir
 #Build application
 echo "Building application"
