@@ -8,9 +8,12 @@ echo "Installing dependencies"
 npm install > /dev/null 2>&1
 
 distDir=$INPUT_DIST_DIR
-if [ ! $distDir ] then
-distDir = '/dist'
+if [ ! $distDir ]; then
+  distDir='/dist'
 fi
+
+echo "Dist dir :" $distDir
+
 
 echo "Dist dir : " $distDir
 #Build application
