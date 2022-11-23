@@ -11,11 +11,8 @@ distDir=$INPUT_DIST_DIR
 if [ ! $distDir ]; then
   distDir='/dist'
 fi
-
-echo "Dist dir :" $distDir
-
-
 echo "Dist dir : " $distDir
+
 #Build application
 echo "Building application"
 
