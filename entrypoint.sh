@@ -2,7 +2,7 @@
 
 #Install dependencies
 echo "Building application"
-mvn package  > /dev/null 2>&1
+mvn package -Dmaven.test.skip=true
 
 
 echo "Upload rtifact file : " $INPUT_ARTIFACT_FILE
