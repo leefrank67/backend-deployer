@@ -21,6 +21,9 @@ inputs:
   PRIVATE_KEY:
     description: ""
     required: true
+  APP_NAME:
+    description: ""
+    required: true
   USER_NAME:
     description: ""
     required: true
@@ -41,6 +44,7 @@ runs:
     AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
     AWS_BUCKET_NAME: ${{ inputs.AWS_BUCKET_NAME }}
     PRIVATE_KEY: ${{ inputs.PRIVATE_KEY }}
+    APP_NAME: ${{ inputs.APP_NAME}}
     USER_NAME: ${{ inputs.USER_NAME }}
     HOST_NAME: ${{ inputs.HOST_NAME }}
     DEPLOY_COMMAND: ${{ inputs.DEPLOY_COMMAND }}
