@@ -5,8 +5,8 @@ echo "Building application"
 mvn package -Dmaven.test.skip=true
 
 
-echo "Upload rtifact file : " $INPUT_ARTIFACT_FILE
-aws s3 cp --region $INPUT_AWS_DEFAULT_REGION $ARTIFACT_FILE_LOCATION s3://$INPUT_AWS_BUCKET_NAME/$INPUT_APP_NAME
+echo "Upload rtifact file : " $ARTIFACT_FILE_LOCATION "/" INPUT_ARTIFACT_FILE_NAME
+aws s3 cp --region $INPUT_AWS_DEFAULT_REGION $ARTIFACT_FILE_LOCATION/INPUT_ARTIFACT_FILE_NAME s3://$INPUT_AWS_BUCKET_NAME/$INPUT_APP_NAME/$INPUT_ARTIFACT_FILE_NAME
 
 #Build application
 echo "Deploy application"
