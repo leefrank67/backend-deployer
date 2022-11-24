@@ -1,4 +1,4 @@
-FROM node:12-slim
+FROM maven:3.3.9-jdk-8-alpine
 
 LABEL "com.github.actions.name"="vue-s3-deployer"
 LABEL "com.github.actions.description"="Github action for deploy Vue app to Amazon s3 bucket. "
