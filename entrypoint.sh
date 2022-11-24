@@ -1,23 +1,17 @@
 #!/usr/bin/env bash
 
-#Move to app source code
-cd $INPUT_APP_SOURCE_CODE
-
 #Install dependencies
-echo "Installing dependencies"
-npm install > /dev/null 2>&1
+echo "Building application"
+mvn package  > /dev/null 2>&1
 
-distDir=$INPUT_DIST_DIR
-if [ ! $distDir ]; then
-  distDir='/dist'
-fi
-echo "Dist dir : " $distDir
+
+echo "Upload rtifact file : " $INPUT_ARTIFACT_FILE
+aws s3 cp --region $INPUT_AWS_DEFAULT_REGION $INPUT_ARTIFACT_FILE s3://$INPUT_AWS_BUCKET_NAME/$PROJECT_NAME/$INPUT_ARTIFACT_FILE
 
 #Build application
-echo "Building application"
-
-#Execute the command provided
-`echo $INPUT_BUILD_COMMAND` 
-
-#Sync files with amazon s3 bucket app
-aws --region $INPUT_AWS_DEFAULT_REGION s3 sync $distDir s3://$INPUT_AWS_BUCKET_NAME --no-progress --delete
+echo "Deploy application"
+echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+ssh -o StrictHostKeyChecking=no -i private_key.pem $INPUT_USER_NAME@$INPUT_HOST_NAME '
+  $INPUT_DEPLOY_COMMAND
+'
+rm -rf private_key.pem
