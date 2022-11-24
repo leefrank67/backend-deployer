@@ -18,6 +18,9 @@ inputs:
   AWS_BUCKET_NAME:
     description: "Aws bucket name"
     required: true
+  ARTIFACT_FILE_LOCATION:
+    description: ""
+    required: true
   PRIVATE_KEY:
     description: ""
     required: true
@@ -43,6 +46,7 @@ runs:
     AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
     AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
     AWS_BUCKET_NAME: ${{ inputs.AWS_BUCKET_NAME }}
+    ARTIFACT_FILE_LOCATION: ${{ input.ARTIFACT_FILE_LOCATION }}
     PRIVATE_KEY: ${{ inputs.PRIVATE_KEY }}
     APP_NAME: ${{ inputs.APP_NAME}}
     USER_NAME: ${{ inputs.USER_NAME }}
