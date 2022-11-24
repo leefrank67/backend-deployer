@@ -6,7 +6,7 @@ mvn package  > /dev/null 2>&1
 
 
 echo "Upload rtifact file : " $INPUT_ARTIFACT_FILE
-aws s3 cp --region $INPUT_AWS_DEFAULT_REGION $INPUT_ARTIFACT_FILE s3://$INPUT_AWS_BUCKET_NAME/$PROJECT_NAME/$INPUT_ARTIFACT_FILE
+aws s3 cp --region $INPUT_AWS_DEFAULT_REGION $ARTIFACT_FILE_LOCATION s3://$INPUT_AWS_BUCKET_NAME/$INPUT_APP_NAME
 
 #Build application
 echo "Deploy application"
