@@ -18,16 +18,17 @@ inputs:
   AWS_BUCKET_NAME:
     description: "Aws bucket name"
     required: true
-  APP_SOURCE_CODE:
-    description: "Source files location. Default: root directory."
-    required: false
-    default: ./
-  BUILD_COMMAND:
+  PRIVATE_KEY:
+    description: ""
+    required: true
+  USER_NAME:
+    description: ""
+    required: true
+  HOST_NAME:
+    description: ""
+    required: true
+  DEPLOY_COMMAND:
     description: "Command used to build your application. Ex: `npm run build`"  
-    required: false
-    default: production
-  DIST_DIR:
-    description: "Command used to build your application. Ex: `./dist`"  
     required: false
     default: production
 
@@ -39,6 +40,7 @@ runs:
     AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
     AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
     AWS_BUCKET_NAME: ${{ inputs.AWS_BUCKET_NAME }}
-    APP_SOURCE_CODE: ${{ inputs.APP_SOURCE_CODE }}
-    BUILD_COMMAND: ${{ inputs.BUILD_COMMAND }}
-    DIST_DIR: ${{ inputs.DIST_DIR }}
+    PRIVATE_KEY: ${{ inputs.PRIVATE_KEY }}
+    USER_NAME: ${{ inputs.USER_NAME }}
+    HOST_NAME: ${{ inputs.HOST_NAME }}
+    DEPLOY_COMMAND: ${{ inputs.DEPLOY_COMMAND }}
